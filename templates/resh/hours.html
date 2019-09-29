@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Práticas para {% now "d/m/Y" %}</h1>
+
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Nascer do sol</th>
+      <th scope="col">Meio-dia solar</th>
+      <th scope="col">Pôr do sol</th>
+      <th scope="col">Meia-noite solar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{ context.ra }}</td>
+      <td>{{ context.ahathoor }}</td>
+      <td>{{ context.tum }}</td>
+      <td>{{ context.kephera }}</td>
+    </tr>
+  </tbody>
+</table>
+
+{% endblock %}
