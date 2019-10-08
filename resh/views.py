@@ -10,5 +10,4 @@ def resh_hours_list(request):
                'ahathoor': horario_pratica['Meio-dia solar'].strftime("%H:%M:%S"),
                'tum': horario_pratica['Pôr do sol'].strftime("%H:%M:%S"),
                'kephera': horario_pratica['Meia-noite solar'].strftime("%H:%M:%S")}
-    print(horario_pratica['Meia-noite solar'].strftime("%H:%M:%S"))
     return render(request, 'resh/hours.html', {'context': context})
