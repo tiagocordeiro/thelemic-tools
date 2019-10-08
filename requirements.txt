@@ -9,3 +9,8 @@ astral==1.10.1
 # Decouple
 python-decouple==3.1
 dj-database-url==0.5.0
+
+# Dependencies for production
+psycopg2-binary==2.8.3
+psycopg2==2.8.3
+gunicorn==19.9.0
