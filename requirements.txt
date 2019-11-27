@@ -16,3 +16,14 @@ psycopg2==2.8.4
 gunicorn==20.0.4
 django-heroku==0.3.1
 whitenoise==4.1.4
+
+# Cloudinary (CDN)
+certifi==2019.9.11
+chardet==3.0.4
+cloudinary==1.18.2
+django-cloudinary-storage==0.2.3
+idna==2.8
+mock==3.0.5
+requests==2.22.0
+six==1.13.0
+urllib3==1.25.7
