@@ -1,6 +1,7 @@
 from datetime import date, timedelta
 
-from astral import Location
+from astral import LocationInfo
+from astral.location import Location
 
 
 def resh_hours(local_name, region, latitude, longitude, time_zone, elevation, resh_date=date.today()):
@@ -14,8 +15,10 @@ def resh_hours(local_name, region, latitude, longitude, time_zone, elevation, re
     :param resh_date: date
     :return: dict
     """
-    location = Location((local_name, region, latitude, longitude, time_zone, elevation))
-    return {"Nascer do sol": location.sunrise(resh_date),
-            "Meio-dia solar": location.solar_noon(resh_date),
-            "Pôr do sol": location.sunset(resh_date),
-            "Meia-noite solar": location.solar_midnight(resh_date + timedelta(days=1))}
+    city = LocationInfo(local_name, region, time_zone, latitude, longitude)
+
+    location = Location(city)
+    return {"Nascer do sol": location.sunrise(resh_date, observer_elevation=elevation),
+            "Meio-dia solar": location.noon(resh_date),
+            "Pôr do sol": location.sunset(resh_date, observer_elevation=elevation),
+            "Meia-noite solar": location.midnight(resh_date + timedelta(days=1))}
