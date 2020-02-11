@@ -1,10 +1,10 @@
 # Django
-Django==2.2.9
+Django==3.0.3
 pytz==2019.3
 sqlparse==0.3.0
 
 # Astral
-astral==1.10.1
+astral==2.0.1
 
 # Decouple
 python-decouple==3.3
@@ -21,9 +21,9 @@ whitenoise==5.0.1
 certifi==2019.11.28
 chardet==3.0.4
 cloudinary==1.19.1
-django-cloudinary-storage==0.2.3
+git+git://github.com/tiagocordeiro/django-cloudinary-storage@Django3Support
 idna==2.8
-mock==3.0.5
+mock==4.0.1
 requests==2.22.0
-six==1.13.0
-urllib3==1.25.7
+six==1.14.0
+urllib3==1.25.8

@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    # 'django.contrib.staticfiles',
+    'django.contrib.staticfiles',
 
     # My Apps
     'core',
@@ -144,21 +144,22 @@ EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=False, cast=bool)
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 # Cloudinary
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': config('CLOUDINARY_NAME'),
-    'API_KEY': config('CLOUDINARY_API_KEY'),
-    'API_SECRET': config('CLOUDINARY_API_SECRET')
-}
-if not DEBUG:
+CLOUDINARY_URL = config('CLOUDINARY_URL', default=False)
+
+if CLOUDINARY_URL:  # pragma: no cover
+    INSTALLED_APPS.remove('django.contrib.staticfiles')
     INSTALLED_APPS = [
         'cloudinary_storage',
         'django.contrib.staticfiles',
         'cloudinary',
     ] + INSTALLED_APPS
+    CLOUDINARY_STORAGE = {
+        'CLOUD_NAME': config('CLOUDINARY_NAME'),
+        'API_KEY': config('CLOUDINARY_API_KEY'),
+        'API_SECRET': config('CLOUDINARY_API_SECRET')
+    }
+
+    COLLECTFAST_ENABLED = False
 
     DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.RawMediaCloudinaryStorage'
     STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
-else:
-    INSTALLED_APPS = [
-        'django.contrib.staticfiles',
-    ] + INSTALLED_APPS
