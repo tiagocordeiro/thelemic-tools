@@ -5,7 +5,7 @@ Django==3.2.2
 astral==2.2
 
 # Decouple
-python-decouple==3.4
+python-decouple==3.5
 
 # Dependencies for production
 dj-database-url==0.5.0
