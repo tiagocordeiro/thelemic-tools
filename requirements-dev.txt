@@ -1,5 +1,5 @@
 # pycodestyle
-flake8==4.0.1
+flake8==5.0.4
 
 # Coverage
 coverage==6.0.1
