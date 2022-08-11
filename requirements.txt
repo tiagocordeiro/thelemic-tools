@@ -1,5 +1,5 @@
 # Django
-Django==3.2.8
+Django==3.2.15
 
 # Astral
 astral==2.2
